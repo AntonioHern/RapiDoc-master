@@ -66,6 +66,9 @@ npm run build
 
 # for developement use yarn serve (this will start an webserver at port 8080, then navigate to localhost:8080) 
 npm run serve
+
+# for deploy use npm run build and upload the dist folder to your server
+npm run build
 ```
 
 ## Roadmap
