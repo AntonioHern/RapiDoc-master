@@ -1,0 +1,317 @@
+openapi: 3.0.0
+servers:
+  - url: https://petstore.swagger.io/v2
+    description: Default server
+  - url: https://petstore.swagger.io/sandbox
+    description: Sandbox server
+info:
+  title: Pet Store
+  version: 1.0.0
+  description: >
+    # Introduction
+    
+    Petstore illustrate the typical design decisions and tradeoffs a developer makes when building an enterprise application. 
+    The demo shows how to document REST API services **OpenAPI format** and is based on
+    [Petstore sample](http://petstore.swagger.io/) by [swagger.io](http://swagger.io) team.
+    It was further **extended** by [ReDoc](https://github.com/Redocly/redoc) Team.
+    
+    ## API Categories
+    
+    The APIs are divided in 3 separate categories, to make things easy to discover. 
+    In RapiDoc OpenAPI renderer these catagories are organized into Tags. each of these tags will contain their respective APIs
+    In case you are viewing RapiDoc in `read-mode` then the Tags and their operation will be organized in Left Navigation bar.
+    
+    Below is how these APIs are arranged
+    
+      - Pet
+      - Store
+      - Users
+    
+    ## API Operations
+
+    ### Pet Operations
+    
+    Below is the list of supported operations
+
+      - Update an existing pet
+      - Add a new pet to the store
+      - Find Pet by ID
+      - Updates a pet in the store
+      - Deletes a pet
+      - Upload an pet image
+      - Finds Pets by status
+      - Finds Pets by tags
+
+    ### Store Operations
+    
+    Below is the list of supported operations
+
+      - Get pet inventory by status
+      - Place an order for a pet
+      - Find purchase order by ID
+      - Delete purchase order
+
+    ### User Operations
+
+    Below is the list of supported operations
+
+      - Create User
+      - Login and Logout of user
+      - Get user by user name
+      - Update user
+      - Delete user
+
+    # Example
+
+    Below is a small code sample how to sender this OpenAPI spec using RapiDoc
+
+    ```html
+      <!doctype html> <!-- Important: must specify -->
+      <html>
+      <head>
+        <meta charset="utf-8"> <!-- Important: rapi-doc uses utf8 characters -->
+        <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+      </head>
+      <body>
+        <rapi-doc 
+          spec-url = "https://petstore.swagger.io/v2/swagger.json" 
+        > </rapi-doc>
+      </body> 
+      </html>
+    ```
+
+    # OpenAPI Version
+
+    You can find the version of OpenAPI spec from the `version` object
+
+    ```yaml
+      openapi: 3.0.2
+      info:
+        version: '1.0'
+        title: Server Variables
+      ...  
+    ```
+
+    # Authentication
+    
+    Petstore offers two forms of authentication:
+    
+      - API Key
+      - OAuth2
+
+    OAuth2 - an open protocol to allow secure authorization in a simple
+    and standard method from web, mobile and desktop applications.
+externalDocs:
+  description: Find out how to create Github repo for your OpenAPI spec.
+  url: 'https://github.com/Rebilly/generator-openapi-repo'
+tags:
+  - name: pet
+    description: Everything about your Pets
+  - name: store
+    description: Access to Petstore orders
+    x-tag-expanded: false
+  - name: user
+    description: Operations about user
+  - name: pet_model
+    description: The Pet Model
+  - name: store_model
+    description: The Order Model
+    paths:
+      /3d:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "fecha"
+              in: "header"
+              type: "string"
+              required: "true"
+        post:
+          description: "Create a new record on articulos"
+          responses:
+            201:
+              description: "The successfully created record."
+              schema:
+                type: "object"
+                properties:
+          consumes:
+            - "application/json"
+          parameters:
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "modo"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "payload"
+              in: "body"
+              required: "true"
+              schema:
+                properties:
+                  api-key:
+                    type: "string"
+                  modo:
+                    type: "string"
+                  body:
+                    type: "string"
+      /categorias:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "web"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+      /crear:
+        post:
+          description: "Create a new record on articulos"
+          responses:
+            201:
+              description: "The successfully created record."
+              schema:
+                type: "object"
+                properties:
+          consumes:
+            - "application/json"
+          parameters:
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "payload"
+              in: "body"
+              required: "true"
+              schema:
+                properties:
+                  api-key:
+                    type: "string"
+                  body:
+                    type: "string"
+      /descargar_impav/{pv_id_tienda}:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "pv_id_tienda"
+              in: "path"
+              required: "true"
+              type: "string"
+              description: "implicit"
+              pattern: "^[^/]+$"
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "fecha"
+              in: "header"
+              type: "string"
+              required: "true"
+      /ecommerce:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "fecha"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "articulo"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "fichero"
+              in: "header"
+              type: "string"
+              required: "true"
+      /propiedades:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+      /stock/{pv_articulo}:
+        get:
+          description: "Retrieve records from articulos"
+          responses:
+            200:
+              description: "The queried record."
+              schema:
+                type: "object"
+                properties:
+          parameters:
+            - name: "pv_articulo"
+              in: "path"
+              required: "true"
+              type: "string"
+              description: "implicit"
+              pattern: "^[^/]+$"
+            - name: "id-tienda"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "api-key"
+              in: "header"
+              type: "string"
+              required: "true"
+            - name: "stock-web"
+              in: "header"
+              type: "string"
+              required: "true"
+    definitions:
+      articulos_ITEM:
+        properties:
+          api-key:
+            type: "string"
+          modo:
+            type: "string"
+          body:
+            type: "string"
+      articulos_ITEM_2:
+        properties:
+          api-key:
+            type: "string"
+          body:
+            type: "string"

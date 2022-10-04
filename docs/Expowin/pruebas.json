@@ -1,0 +1,262 @@
+
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "pedidos": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "refped": {
+              "type": "string"
+            },
+            "fecha": {
+              "type": "string"
+            },
+            "fechaserv": {
+              "type": "string"
+            },
+            "observacion": {
+              "type": "string"
+            },
+            "confirmado": {
+              "type": "string"
+            },
+            "fichero_adjunto": {
+              "type": "string"
+            },
+            "vendedor": {
+              "type": "integer"
+            },
+            "nombre": {
+              "type": "string"
+            },
+            "direccion": {
+              "type": "string"
+            },
+            "cpostal": {
+              "type": "string"
+            },
+            "poblacion": {
+              "type": "string"
+            },
+            "pais": {
+              "type": "string"
+            },
+            "telefono": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "dni": {
+              "type": "string"
+            },
+            "direccion_envio": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string"
+                },
+                "direccion": {
+                  "type": "string"
+                },
+                "cpostal": {
+                  "type": "string"
+                },
+                "poblacion": {
+                  "type": "string"
+                },
+                "pais": {
+                  "type": "string"
+                },
+                "telefono": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "nombre",
+                "direccion",
+                "cpostal",
+                "poblacion",
+                "pais",
+                "telefono",
+                "email"
+              ]
+            },
+            "cobro": {
+              "type": "object",
+              "properties": {
+                "importe": {
+                  "type": "integer"
+                },
+                "tipo_pago": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "importe",
+                "tipo_pago"
+              ]
+            },
+            "fpago": {
+              "type": "integer"
+            },
+            "tipo_entrega": {
+              "type": "integer"
+            },
+            "lineas": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "linea": {
+                      "type": "integer"
+                    },
+                    "articulo": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "descripcion2": {
+                      "type": "string"
+                    },
+                    "observacion": {
+                      "type": "string"
+                    },
+                    "cantidad": {
+                      "type": "integer"
+                    },
+                    "dto1": {
+                      "type": "integer"
+                    },
+                    "dto2": {
+                      "type": "integer"
+                    },
+                    "dto3": {
+                      "type": "integer"
+                    },
+                    "dto4": {
+                      "type": "integer"
+                    },
+                    "precio": {
+                      "type": "integer"
+                    },
+                    "precio_coste": {
+                      "type": "integer"
+                    },
+                    "tipo_entrega_linea": {
+                      "type": "integer"
+                    },
+                    "conjunto": {
+                      "type": "string"
+                    },
+                    "conjunto_elemento": {
+                      "type": "string"
+                    },
+                    "propiedades": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id_propiedad": {
+                              "type": "string"
+                            },
+                            "id_serie_provee": {
+                              "type": "integer"
+                            },
+                            "id_proveedor": {
+                              "type": "integer"
+                            },
+                            "id_grupo_propiedad": {
+                              "type": "string"
+                            },
+                            "id_serie_provee_grupo": {
+                              "type": "integer"
+                            },
+                            "id_proveedor_grupo": {
+                              "type": "integer"
+                            },
+                            "id_valor": {
+                              "type": "integer"
+                            },
+                            "cantidad": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "id_propiedad",
+                            "id_serie_provee",
+                            "id_proveedor",
+                            "id_grupo_propiedad",
+                            "id_serie_provee_grupo",
+                            "id_proveedor_grupo",
+                            "id_valor",
+                            "cantidad"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "linea",
+                    "articulo",
+                    "descripcion",
+                    "descripcion2",
+                    "observacion",
+                    "cantidad",
+                    "dto1",
+                    "dto2",
+                    "dto3",
+                    "dto4",
+                    "precio",
+                    "precio_coste",
+                    "tipo_entrega_linea",
+                    "conjunto",
+                    "conjunto_elemento",
+                    "propiedades"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "refped",
+            "fecha",
+            "fechaserv",
+            "observacion",
+            "confirmado",
+            "fichero_adjunto",
+            "vendedor",
+            "nombre",
+            "direccion",
+            "cpostal",
+            "poblacion",
+            "pais",
+            "telefono",
+            "email",
+            "dni",
+            "direccion_envio",
+            "cobro",
+            "fpago",
+            "tipo_entrega",
+            "lineas"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "pedidos"
+  ]
+}
+

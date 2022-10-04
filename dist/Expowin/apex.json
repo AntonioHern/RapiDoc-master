@@ -1,0 +1,1373 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Expowin 2022",
+    "version": "1.1.1",
+    "description": "Lorem fistrum qué dise usteer de la pradera está la cosa muy malar a peich a wan fistro se calle ustée. Benemeritaar va usté muy cargadoo jarl llevame al sircoo pupita pupita. Condemor qué dise usteer caballo blanco caballo negroorl mamaar ese pedazo de ese pedazo de no puedor sexuarl torpedo se calle ustée me cago en tus muelas. A gramenawer quietooor no puedor no puedor por la gloria de mi madre ahorarr te voy a borrar el cerito va usté muy cargadoo no te digo trigo por no llamarte Rodrigor no te digo trigo por no llamarte Rodrigor no te digo trigo por no llamarte Rodrigor. Hasta luego Lucas mamaar va usté muy cargadoo a peich por la gloria de mi madre no te digo trigo por no llamarte Rodrigor apetecan condemor. Por la gloria de mi madre amatomaa jarl diodeno diodeno fistro hasta luego Lucas tiene musho peligro fistro.\n\nDiodeno papaar papaar no puedor pecador a peich pupita benemeritaar condemor. A wan llevame al sircoo hasta luego Lucas a peich papaar papaar me cago en tus muelas sexuarl ese hombree te va a hasé pupitaa ese hombree. Jarl pupita no te digo trigo por no llamarte Rodrigor a peich sexuarl. No te digo trigo por no llamarte Rodrigor ese pedazo de tiene musho peligro no puedor hasta luego Lucas fistro caballo blanco caballo negroorl de la pradera te voy a borrar el cerito fistro condemor. Tiene musho peligro mamaar amatomaa hasta luego Lucas mamaar apetecan caballo blanco caballo negroorl. No puedor pecador de la pradera caballo blanco caballo negroorl ahorarr me cago en tus muelas jarl. Por la gloria de mi madre jarl ese que llega va usté muy cargadoo caballo blanco caballo negroorl torpedo.\n\nCondemor va usté muy cargadoo diodeno me cago en tus muelas. Caballo blanco caballo negroorl no puedor ese que llega ese que llega. Ese que llega quietooor a peich caballo blanco caballo negroorl no puedor va usté muy cargadoo va usté muy cargadoo diodenoo qué dise usteer ahorarr. No puedor papaar papaar qué dise usteer amatomaa de la pradera. Tiene musho peligro te va a hasé pupitaa la caidita pecador a peich a peich no puedor te va a hasé pupitaa amatomaa de la pradera. Condemor caballo blanco caballo negroorl hasta luego Lucas pecador condemor se calle ustée me cago en tus muelas. De la pradera condemor sexuarl no puedor pupita diodeno fistro a peich. Ese pedazo de sexuarl se calle ustée tiene musho peligro a peich a peich amatomaa caballo blanco caballo negroorl. Sexuarl hasta luego Lucas papaar papaar ahorarr. "
+  },
+  "host": "localapex.expowin.es:4444",
+  "basePath": "/apex/e17e83c09ce824a723e3ea46d3bbbb1a/",
+
+
+  "tags": [
+    {
+      "name": "Articulos",
+      "description": "Operaciones sobre Articulos"
+    },
+    {
+      "name": "Pedidos",
+      "description": "Operaciones sobre Pedidos"
+    }
+
+  ],
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/articulos/categorias": {
+      "get": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Listado de categorías",
+        "description": "El objetivo es el de poder descargar en JSON todas las categorías (familias) dadas de alta en el ERP.",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "web",
+            "description": "S / N – Devolverá sólo las categorías \nactivas web o todas\n",
+            "in": "header",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/categorias\" -H \"accept: application/json\" -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Esquema de categorías",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/categoria"
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/articulos/3d": {
+      "get": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Listado de productos 3D",
+        "description": "El objetivo es el de poder descargar en JSON todos los artículos padres con el campo conjunto relleno\ny sus propiedades",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "fecha",
+            "description": "Filtro de fecha de modificación de \nartículos, para obtener sólo artículos \nmodificados desde una fecha.\n",
+            "example": "06/06/2022",
+            "in": "header",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/3d\" -H \"accept: application/json\" -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Esquema de productos 3D",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/productos"
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/articulos/crear": {
+      "post": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Crear artículo",
+        "description": "El objetivo es el de poder crear y actualizar artículos en el ERP mediante el servicio web definido.\n\nLa información que el cliente deberá informar irá en una estructura denominada JSON y la comunicación con el servicio web se hará mediante la arquitectura REST.",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/articulos_crear"
+            }
+          }
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X POST \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/crear\" -H \"Content-Type: application/json\" -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Esquema de productos",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/correcto_crear_articulo"
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+    "/articulos/stock/{articulo}": {
+      "get": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Stock de un artículo",
+        "description": "El objetivo es el de poder descargar en JSON con el stock del artículo en ese momento.\n\nSerá necesario el uso de una API-Key para acceder al WS. La API-Key será facilitada por Daemon4.\n\nLa información que el cliente deberá informar irá en una estructura denominada JSON y la comunicación con el servicio web se hará mediante la arquitectura REST.",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "articulo",
+            "description": "Código de artículo",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+
+          {
+            "name": "stock-web",
+            "description": "S/N Indica si sólo se quiere \nobtener el stock disponible \npara la web",
+            "in": "header",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/stock/{articulo}\"  -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stock de un artículo",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/stock_articulo"
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+
+    "/articulos/propiedades": {
+      "get": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Listado de propiedades",
+        "description" : "El objetivo es el de poder descargar en JSON todas las propiedades dadas de alta en el ERP.",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/propiedades\"  -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Propiedades",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/propiedades"
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+
+    "/articulos/ecommerce": {
+      "get": {
+        "tags": [
+          "Artículos"
+        ],
+        "summary": "Ecommerce",
+        "description" : "El objetivo es el de poder descargar en JSON todos los productos para usarlos desde cualquier Ecommerce.\n\nSerá necesario el uso de una API-Key para acceder al WS. La API-Key será facilitada por Daemon4.\n",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "articulo",
+            "description": "Código de artículo en el ERP para obtener los datos de un artículo concreto, solo admite artículos normales o padres.",
+            "in": "header",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "Fecha",
+            "description": "Filtro de fecha de modificación de artículos, para obtener sólo artículos modificados desde una fecha.",
+            "example": "06/06/2022",
+            "in": "header",
+            "type": "string",
+            "required": false
+          },
+
+          {
+            "name": "fichero",
+            "description": "S/N Si se indica una S se devolverá un fichero .json con el resultado, si se indica una N el json se retornará directamente en consola",
+            "in": "header",
+            "type": "string",
+            "required": false
+          }
+
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/articulos/ecommerce\"  -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ecommerce",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/productos_ecommerce"
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    },
+
+
+
+
+    "/pedidos/alta": {
+      "post": {
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Alta de pedidos",
+        "description" : "El objetivo es permitir la creación de pedidos de cliente en el ERP mediante un JSON de entrada y devolver los códigos de pedidos generados",
+        "parameters": [
+          {
+            "name": "api-key",
+            "description": "Clave de acceso para la API",
+            "in": "header",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Crear pedido",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pedidos"
+            }
+          }
+
+        ],
+        "x-code-samples": [
+          {
+            "lang": "curl",
+            "source": "curl -X GET \"https://localapex.expowin.es:4444/apex/e17e83c09ce824a723e3ea46d3bbbb1a/pedidos/alta\" H \"Content-Type: application/json\"  -H \"api-key: 123456789\""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Alta de pedidos",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/correcto_crear_pedido"
+            }
+          },
+          "400": {
+            "description": "Error en la autenticación",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/error"
+            }
+          }
+        }
+      }
+    }
+  },
+
+
+
+
+
+  "definitions": {
+    "categoria": {
+      "description": "Destalles de categoría",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Identificador de la categoría"
+        },
+        "nombre": {
+          "type": "string",
+          "description": "Nombre de la categoría"
+        },
+        "catmadre": {
+          "type": "number",
+          "description": "Id. categoría superior"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Descripción ampliada"
+        },
+        "imagen": {
+          "type": "string",
+          "description": "URL de la imagen"
+        }
+      }
+    },
+
+    "productos": {
+      "description": "Destalles de productos",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Identificador web del artículo"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Nombre del producto "
+        },
+        "descripcion2": {
+          "type": "string",
+          "description": "Ampliación nombre del producto"
+        },
+        "categorias": {
+          "type": "string",
+          "description": "Lista id’s categorías"
+        },
+        "precio_coste": {
+          "type": "number",
+          "description": "Precio de compra del producto"
+        },
+        "pvp": {
+          "type": "number",
+          "description": "Precio del producto sin oferta"
+        },
+        "iva": {
+          "type": "number",
+          "description": "Porcentaje de iva"
+        },
+        "referencia": {
+          "type": "string",
+          "description": "Código del artículo en el ERP."
+        },
+        "refprov": {
+          "type": "string",
+          "description": "Referencia del proveedor para el product"
+        },
+        "cod_proveedor": {
+          "type": "number",
+          "description": "Código proveedor en el ERP"
+        },
+        "proveedor": {
+          "type": "string",
+          "description": "Nombre proveedor"
+        },
+        "cod_fabricante": {
+          "type": "number",
+          "description": "Código fabricante en el ERP"
+        },
+        "fabricante": {
+          "type": "string",
+          "description": "Nombre fabricante"
+        },
+        "conjunto": {
+          "type": "string",
+          "description": "Código de conjunto al que pertenece el artículo"
+        },
+        "desc_conjunto": {
+          "type": "string",
+          "description": "Descripción del conjunto"
+        },
+        "conjunto_elemento": {
+          "type": "string",
+          "description": "Código del elemento del conjunto al que pertenece el artículo"
+        },
+        "desc_conjunto_elemento": {
+          "type": "string",
+          "description": "Descripción del elemento "
+        },
+        "propiedades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/propiedades_articulo"
+          }
+        },
+        "imagenes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imagenes_articulo"
+          }
+        }
+
+      }
+    },
+    "propiedades_articulo": {
+      "description": "Propiedades de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orden": {
+          "type": "number",
+          "description": "Orden de aparición de la propiedad"
+        },
+        "id_propiedad": {
+          "type": "string",
+          "description": "Código de la propiedad"
+        },
+        "id_proveedor": {
+          "type": "number",
+          "description": "Código proveedor de la propiedad"
+        },
+        "id_serie_provee": {
+          "type": "number",
+          "description": "Código serie proveedor de la propiedad"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Descripción de la propiedad"
+        },
+        "cantidad": {
+          "type": "number",
+          "description": "Cantidad de valores que se pueden elegir en grupos \nde propiedad de multiple selección."
+        }
+      }
+    },
+    "imagenes_articulo": {
+      "description": "Imagenes de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orden": {
+          "type": "number",
+          "description": "Orden de aparición de la imagen"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL de la imagen"
+        }
+      }
+    },
+    "articulos_crear": {
+      "description": "Atículo a crear",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "articulos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/articulo_definicion"
+          }
+        }
+      }
+    },
+
+    "articulo_definicion": {
+      "description": "Atículo a crear",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "referencia",
+        "descripcion",
+        "precio_compra",
+        "precio_venta",
+        "proveedor",
+        "programa"
+      ],
+      "properties": {
+        "referencia": {
+          "type": "string",
+          "description": "[Obligatorio] Referencia del artículo en el ERP",
+          "example": "REFPRUEBA"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "[Obligatorio] Descripción del artículo",
+          "example": "MODULO DE CAJONES 2x2"
+        },
+        "precio_compra": {
+          "type": "number",
+          "description": "[Obligatorio] Precio de coste del artículo",
+          "example": 10.5
+        },
+        "precio_venta": {
+          "type": "number",
+          "description": "[Obligatorio] Precio de venta del artículo con IVA",
+          "example": 12.5
+        },
+        "familia": {
+          "type": "string | null",
+          "description": "[Opcional] Código de la familia del artículo en el ERP",
+          "example": "00001.00002"
+        },
+        "proveedor": {
+          "type": "number",
+          "description": "[Obligatorio] Código del proveedor del artículo en el ERP",
+          "example": 300
+        },
+        "programa": {
+          "type": "number",
+          "description": "[Obligatorio] Código del programa del artículo en el ERP",
+          "example": 2
+        }
+      }
+    },
+
+
+
+    "correcto_crear_articulo": {
+      "description": "Respuesta correcta al crear un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resultado": {
+          "type": "string",
+          "description": "OK"
+        },
+        "error": {
+          "type": "number",
+          "description": "0"
+        },
+        "mensaje": {
+          "type": "string",
+          "description": "Referencia de los artículos creados"
+        }
+      }
+    },
+
+
+    "stock_articulo": {
+      "description": "Estock disponible de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "real": {
+          "type": "number",
+          "description": "Cantidad real"
+        },
+        "disponible": {
+          "type": "number",
+          "description": "Cantidad disponible"
+        },
+        "vendible": {
+          "type": "number",
+          "description": "Cantidad vendible"
+        }
+      }
+    },
+
+    "propiedades": {
+      "description": "Propiedades de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "propiedades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/propiedad"
+          }
+        }
+      }
+    },
+
+
+
+    "propiedad": {
+      "description": "Propiedades de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id_propiedad": {
+          "type": "string",
+          "description": "Código de la propiedad"
+        },
+        "id_serie_provee": {
+          "type": "number",
+          "description": "Código de serie de proveedor en la propiedad"
+        },
+        "id_proveedor": {
+          "type": "number",
+          "description": "Código de proveedor en la propiedad"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Descripción de la propiedad"
+        },
+        "abreviatura": {
+          "type": "number",
+          "description": "Abreviatura de la propiedad"
+        },
+
+        "grupo_propiedades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/grupo_propiedades"
+          }
+        }
+      }
+    },
+
+
+    "grupo_propiedades": {
+      "description": "Grupo de propiedades de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id_grupo_propiedad": {
+          "type": "string",
+          "description": "Código del grupo de propiedades"
+        },
+        "id_serie_provee": {
+          "type": "number",
+          "description": "Código de serie de proveedor en el grupo de propiedades"
+        },
+        "id_proveedor": {
+          "type": "number",
+          "description": "Código de proveedor en el grupo de propiedades"
+        },
+        "multi_seleccion": {
+          "type": "string",
+          "description": "S / N Indica si se pueden seleccionar varios valores"
+        },
+        "id_valor": {
+          "type": "number",
+          "description": "Código del valor de la propiedad"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Descripción del valor de la propiedad"
+        },
+        "abreviatura": {
+          "type": "string",
+          "description": "Abreviatura del valor de la propiedad"
+        },
+        "imagen": {
+          "type": "string",
+          "description": "URL de la imagen"
+        },
+        "agrupacion": {
+          "type": "string",
+          "description": "Nombre de la posible agrupación de valores"
+        }
+      }
+    },
+
+
+
+    "error": {
+      "description": "Error de autenticación",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resultado": {
+          "type": "string",
+          "description": "KO"
+        },
+        "error": {
+          "type": "string",
+          "description": "-1"
+        },
+        "mensaje": {
+          "type": "string",
+          "description": "Error de autenticación"
+        }
+      }
+    },
+
+    "productos_ecommerce": {
+      "description": "Productos de un ecommerce",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "productos": {"type": "array",
+          "items": {
+            "$ref": "#/definitions/producto"
+          }
+        }
+      }
+    },
+
+    "producto": {
+      "description": "Producto de un ecommerce",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Identificador web del artículo"
+        },
+        "activo": {
+          "type": "number",
+          "description": "Indica si está activo (1) o no (0)"
+        },
+        "nombre": {
+          "type": "string",
+          "description": "Nombre del artículo"
+        },
+        "categorias": {
+          "type": "string",
+          "description": "Lista de id's de categorías"
+        },
+        "coste": {
+          "type": "number",
+          "description": "Precio de compra del artículo"
+        },
+        "pvp": {
+          "type": "number",
+          "description": "Precio de venta del artículo sin ofertas"
+        },
+        "iva": {
+          "type": "number",
+          "description": "IVA aplicado al artículo"
+        },
+        "pvp_mayorista": {
+          "type": "number",
+          "description": "Precio para mayoristas"
+        },
+        "en_rebja": {
+          "type": "number",
+          "description": "Indica si está en rebaja (1) o no (0)"
+        },
+        "dto_porc": {
+          "type": "number",
+          "description": "Descuento porcentual oferta"
+        },
+        "dto_desde": {
+          "type": "string",
+          "description": "Fecha desde la que está en oferta"
+        },
+        "dto_hasta": {
+          "type": "string",
+          "description": "Fecha hasta la que está en oferta"
+        },
+        "referencia": {
+          "type": "string",
+          "description": "Referencia del artículo en le ERP"
+        },
+        "refprov": {
+          "type": "string",
+          "description": "Referencia del proveedor del artículo"
+        },
+        "cod_proveedor": {
+          "type": "number",
+          "description": "Código proveedor del artículo en el ERP"
+        },
+        "proveedor": {
+          "type": "string",
+          "description": "Nombre del proveedor"
+        },
+        "cod_fabricante": {
+          "type": "number",
+          "description": "Código fabricante del artículo en el ERP"
+        },
+        "fabricante": {
+          "type": "string",
+          "description": "Nombre del fabricante"
+        },
+        "ean13": {
+          "type": "string",
+          "description": "Código EAN13 del artículo"
+        },
+        "ancho": {
+          "type": "number",
+          "description": "Ancho del artículo en metros"
+        },
+        "alto": {
+          "type": "number",
+          "description": "Alto del artículo en metros"
+        },
+        "profundiad": {
+          "type": "number",
+          "description": "Profundidad del artículo en metros"
+        },
+        "peso": {
+          "type": "number",
+          "description": "Peso del artículo en kilogramos"
+        },
+        "stock": {
+          "type": "number",
+          "description": "Stock del artículo"
+        },
+        "desc_breve": {
+          "type": "string",
+          "description": "Descripción breve del artículo"
+        },
+        "desc_larga": {
+          "type": "string",
+          "description": "Descripción larga del artículo"
+        },
+        "texto_stock": {
+          "type": "string",
+          "description": "Texto para cuando tiene stock"
+        },
+        "texto_no_stock": {
+          "type": "string",
+          "description": "Texto para cuando no tiene stock"
+        },
+        "caracteristicas": {
+          "type": "string",
+          "description": "Lista de características del artículo"
+        },
+        "lista_imagenes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imagenes_articulo"
+          }
+        },
+        "articulos_relacionados": {
+          "type": "string",
+          "description": "Lista de id's de artículos relacionados"
+        },
+        "acabados_coleccion": {
+          "type": "string",
+          "description": "Acabados de la colección"
+        },
+        "descripcion_coleccion": {
+          "type": "string",
+          "description": "Descripción de la colección"
+        },
+        "mantenimiento_coleccion": {
+          "type": "string",
+          "description": "Mantenimiento de la colección"
+        },
+        "medidas_coleccion": {
+          "type": "string",
+          "description": "Medidas de la colección"
+        },
+        "contenido_seo": {
+          "type": "string",
+          "description": "Contenido SEO del artículo"
+        },
+        "meta_titulo": {
+          "type": "string",
+          "description": "Meta título del artículo"
+        },
+        "meta_descripcion": {
+          "type": "string",
+          "description": "Meta descripción del artículo"
+        },
+        "meta_etiquetas": {
+          "type": "string",
+          "description": "Meta etiquetas del artículo"
+        },
+        "combinaciones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/combinacion"
+          }
+        }
+      }
+
+    },
+
+
+    "combinacion": {
+      "description": "Lista de cominaciones de un artículo",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "number", "description": "Identificador web del artículo"},
+        "id_padre": {"type": "number", "description": "Identificador web del artículo padre"},
+        "referencia": {"type": "string", "description": "Código del artículo en el ERP"},
+        "refprov": {"type": "string", "description": "Referencia del proveedor del artículo"},
+        "pvp": {"type": "number", "description": "Precio de venta del artículo sin ofertas"},
+        "impacto_pvp": {"type": "number", "description": "Diferencia de precio con respecto al padre (incremento o decremento de precio)"},
+        "en_rebaja": {"type": "number", "description": "Indica si está en rebaja (1) o no (0)"},
+        "dto_porc": {"type": "number", "description": "Descuento porcentual oferta"},
+        "dto_desde": {"type": "string", "description": "Fecha desde la que está en oferta"},
+        "dto_hasta": {"type": "string", "description": "Fecha hasta la que está en oferta"},
+        "stock": {"type": "number", "description": "Stock del artículo"},
+        "peso": {"type": "number", "description": "Peso del artículo en kilogramos"},
+        "por_defecto": {"type": "number", "description": "Combinacon por defecto"},
+        "posicion_img_padre": {"type": "string", "description": "Posición de la imagen del padre"},
+        "propiedades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/propiedad_ecommerce"
+          }
+        }
+      }
+    },
+
+    "propiedad_ecommerce": {
+      "description": "Propiedades de una combinación",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "descripcion": {"type": "string", "description": "Nombre de la propiedad"},
+        "orden": {"type": "number", "description": "Orden de petición de propiedad "},
+        "tipo": {"type": "string", "description": "Tipo selector (color,lista,radio) "},
+        "valor": {"type": "string", "description": "Valor de la propiedad"}
+      }
+    },
+
+
+    "correcto_crear_pedido": {
+      "description": "Respuesta correcta al crear un pedido",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resultado": {"type": "string", "description": "Resultado de la petición"},
+        "error": {"type": "string", "description": "Código de error"},
+        "mensaje": {"type": "string", "description": "Mensaje de error, o identificadores de pedidos creados separados por coma."}
+      }
+    },
+
+
+    "pedidos": {
+      "description": "Ejemplo de JSON de pedidos",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pedidos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pedido"
+          }
+        }
+      }
+    },
+
+    "pedido": {
+      "description": "Ejemplo de JSON de pedido",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "refped",
+        "nombre",
+        "direccion",
+        "cpostal",
+        "poblacion",
+        "pais",
+        "lineas"
+
+      ],
+      "properties": {
+        "refped": {
+          "type": "string",
+          "description": "Referencia del pedido",
+          "example": "336-341"
+        },
+        "fecha": {
+          "type": "string",
+          "description": "Fecha del pedido",
+          "example": "8/11/2021"
+        },
+        "fechaserv": {
+          "type": "string",
+          "description": "Fecha de servicio del pedido",
+          "example": "8/11/2021"
+        },
+        "observacion": {
+          "type": "string",
+          "description": "Observaciones del pedido",
+          "example": "Observaciones del pedido"
+        },
+        "confirmado": {
+          "type": "string",
+          "description": "Indica si el pedido está confirmado o es presupuesto",
+          "example": "N"
+        },
+        "fichero_adjunto": {
+          "type": "string",
+          "description": "URL del fichero que se quiere adjunta al pedido",
+          "example": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+        },
+        "vendedor": {
+          "type": "number",
+          "description": "condigo del vendedor en el ERP",
+          "example": 1
+        },
+        "nombre": {
+          "type": "string",
+          "description": "Nombre del cliente facturación",
+          "example": "Jon Doe"
+        },
+        "direccion": {
+          "type": "string",
+          "description": "Dirección del cliente facturación",
+          "example": "Calle falsa 123"
+        },
+        "cpostal": {
+          "type": "string",
+          "description": "Código postal del cliente facturación",
+          "example": "28001"
+        },
+        "poblacion": {
+          "type": "string",
+          "description": "Población del cliente facturación",
+          "example": "Madrid"
+        },
+        "pais": {
+          "type": "string",
+          "description": "Código ISO del país del cliente facturación",
+          "example": "ES"
+        },
+        "telefono": {
+          "type": "string",
+          "description": "Teléfono del cliente facturación",
+          "example": "666666666"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email del cliente facturación",
+          "example": "jondoe@email.com"
+        },
+        "dni": {
+          "type": "string",
+          "description": "DNI del cliente facturación",
+          "example": "12345678Z"
+        },
+        "direccion_envio ": {
+          "type": "object",
+          "$ref": "#/definitions/direccion_envio"
+        },
+        "cobro": {
+          "type": "object",
+          "required": [
+            "importe",
+            "tipo_pago"
+          ],
+          "properties": {
+            "importe": {
+              "type": "number",
+              "description": "Importe total del pedido",
+              "example": 100
+            },
+            "tipo_pago": {
+              "type": "string",
+              "description": "Código del tipo de pago en el ERP",
+              "example": "TJ"
+            }
+          }
+        },
+        "fpago": {
+          "type": "number",
+          "description": "Código del tipo de pago en el ERP",
+          "example": 1
+        },
+        "tipo_entrega": {
+          "type": "number",
+          "description": "Código del tipo de entrega en el ERP",
+          "example": 0
+        },
+        "lineas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/linea_pedido"
+          }
+        }
+      }
+    },
+
+
+
+    "direccion_envio": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "description": "Nombre del cliente entrega",
+          "example": "Jon Doe"
+        },
+        "direccion": {
+          "type": "string",
+          "description": "Dirección del cliente entrega",
+          "example": "Calle falsa 123"
+        },
+        "cpostal": {
+          "type": "string",
+          "description": "Código postal del cliente entrega",
+          "example": "28001"
+        },
+        "poblacion": {
+          "type": "string",
+          "description": "Población del cliente entrega",
+          "example": "Madrid"
+        },
+        "pais": {
+          "type": "string",
+          "description": "Código ISO del país del cliente entrega",
+          "example": "ES"
+        },
+        "telefono": {
+          "type": "string",
+          "description": "Teléfono del cliente entrega",
+          "example": "666666666"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email del cliente entrega",
+          "example": "menganico@menganico.com"
+        }
+      }
+    },
+
+
+    "linea_pedido": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "linea",
+        "articulo",
+        "descripcion",
+        "cantidad",
+        "precio"
+      ],
+      "properties": {
+        "linea": {
+          "type": "number",
+          "description": "Número de línea del pedido",
+          "example": 1
+        },
+        "articulo": {
+          "type": "string",
+          "description": "Código del artículo en el ERP",
+          "example": "01005000000010"
+        },
+        "descripcion": {
+          "type": "string",
+          "description": "Descripción del artículo",
+          "example": "Artículo de prueba"
+        },
+        "descripcion2": {
+          "type": "string",
+          "description": "Descripción 2 del artículo",
+          "example": "Artículo de prueba"
+        },
+        "observacion": {
+          "type": "string",
+          "description": "Observaciones de la línea",
+          "example": "Observaciones de la línea"
+        },
+        "cantidad": {
+          "type": "number",
+          "description": "Cantidad del artículo",
+          "example": 1
+        },
+        "dto1": {
+          "type": "number",
+          "description": "Descuento 1",
+          "example": 0
+        },
+        "dto2": {
+          "type": "number",
+          "description": "Descuento 2",
+          "example": 0
+        },
+        "dto3": {
+          "type": "number",
+          "description": "Descuento 3",
+          "example": 0
+        },
+        "dto4": {
+          "type": "number",
+          "description": "Descuento 4",
+          "example": 0
+        },
+        "precio": {
+          "type": "number",
+          "description": "Precio del artículo",
+          "example": 100
+        },
+        "precio_coste": {
+          "type": "number",
+          "description": "Precio de coste del artículo",
+          "example": 100
+        },
+        "tipo_entrega_linea": {
+          "type": "number",
+          "description": "Código del tipo de entrega en el ERP",
+          "example": 0
+        },
+        "conjunto": {
+          "type": "string",
+          "description": "Código del conjunto en el ERP",
+          "example": "01005000000010"
+        },
+        "conjunto_elemento": {
+          "type": "string",
+          "description": "Código del elemento del conjunto en el ERP",
+          "example": "01005000000010"
+        },
+        "propiedades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/propiedad_articulo_pedido"
+          }
+        }
+      }
+    },
+
+    "propiedad_articulo_pedido": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id_propiedad",
+        "id_valor"
+      ],
+      "properties": {
+        "id_propiedad": {
+          "type": "string",
+          "description": "Identificador de la propiedad",
+          "example": "TAPIZ"
+        },
+        "id_serie_provee": {
+          "type": "number",
+          "description": "Código de serie de proveedor para la propiedad",
+          "example": 1
+        },
+        "id_proveedor": {
+          "type": "number",
+          "description": "Código de proveedor para la propiedad",
+          "example": 1
+        },
+        "id_grupo_propiedad": {
+          "type": "string",
+          "description": "Identificador de grupo de propiedad",
+          "example": "TAPIZ"
+        },
+        "id_serie_provee_grupo": {
+          "type": "number",
+          "description": "Código de serie de proveedor del grupo",
+          "example": 1
+        },
+        "id_proveedor_grupo": {
+          "type": "number",
+          "description": "Código de proveedor del grupo",
+          "example": 1
+        },
+        "id_valor": {
+          "type": "number",
+          "description": "Código del valor de la propiedad",
+          "example": 1
+        },
+        "cantidad": {
+          "type": "number",
+          "description": "Cantidad de valores",
+          "example": 1
+        }
+      }
+    }
+
+
+
+
+  }
+}
